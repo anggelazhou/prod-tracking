@@ -1,0 +1,25 @@
+.types-subnavbar {
+  background: #980e21;
+  height: 52px;
+  display: flex;
+  z-index: 10;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.link {
+  padding: 0 1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: small;
+}
+
+link:hover {
+  transition: all 0.2s ease-in-out;
+  color: #010606;
+}

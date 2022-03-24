@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/common/layout";
+import Projects from "./components/pages/Projects";
+import ProjectDetails from "./components/pages/ProjectDetails";
+import Login from "./components/pages/Login";
+import SequenceDetails from "./components/pages/SequenceDetails";
+// import Shot from "./components/pages/ShotDetails";
+// import Asset from "./components/pages/AssetDetails";
+// import Assets from "./components/pages/Assets";
+// import Sequences from "./components/pages/NoNeedForNow/Sequences";
+// import Shots from "./components/pages/Shots";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/" element={<Projects />} />
+          <Route exact path="/projects" element={<Projects />} />
+          {/* <Route exact path="/sequences" element={<Sequences />} />
+          <Route exact path="/shots" element={<Shots />} /> */}
+          {/* <Route exact path="/assets" element={<Assets />} /> */}
+          <Route
+            exact
+            path="/projects/:id/sequences"
+            element={<ProjectDetails />}
+          />
+          <Route
+            exact
+            path="/sequences/:id/shots"
+            element={<SequenceDetails />}
+          />
+          {/* <Route exact path="/shots/:id" element={<Shot />} /> */}
+          {/* <Route exact path="/assets/:id" element={<Asset />} /> */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,18 @@
+.sequences {
+  /* display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 20vw);
+  justify-content: space-between;
+}
+
+.sequences::after {
+  content: "";
+  flex: content;
+}
+.sequences > .sequence {
+  flex: 1 1 15%;
+  width: 17vw;
+  margin: 1rem;
+}

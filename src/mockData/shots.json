@@ -1,0 +1,74 @@
+[
+    {
+    "id": 1000,
+    "shotName": "LLL1000",
+    "seqId": 1,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 2000,
+    "shotName": "MMM2000",
+    "seqId": 2,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 3000,
+    "shotName": "NNN3000",
+    "seqId": 3,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 4000,
+    "shotName": "FFF3000",
+    "seqId": 4,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 5000,
+    "shotName": "HPP3000",
+    "seqId": 5,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 6000,
+    "shotName": "HHH3000",
+    "seqId": 6,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 7000,
+    "shotName": "LOL3000",
+    "seqId": 7,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 8000,
+    "shotName": "LGL3000",
+    "seqId": 8,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 9000,
+    "shotName": "SFS3000",
+    "seqId": 9,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 1100,
+    "shotName": "FSF3000",
+    "seqId": 10,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 1200,
+    "shotName": "FSS3000",
+    "seqId": 11,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  },
+  {
+    "id": 1300,
+    "shotName": "GKL3000",
+    "seqId": 12,
+    "img": "https://assets.vogue.com/photos/5efa049d819a22289103bfc9/master/pass/_FIO0117.jpg"
+  }
+]

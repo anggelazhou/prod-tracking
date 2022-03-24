@@ -1,0 +1,49 @@
+.card {
+  width: 17vw;
+  height: 25vh;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px -5px;
+  transition: 0.2s;
+  animation: ease-in;
+  margin: 1rem;
+  /* margin: 1rem; */
+}
+
+.card-content {
+  margin: 1rem;
+  margin-top: 0.5rem;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 10px 0px;
+}
+
+.image-container {
+  overflow: hidden;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+}
+
+.project-name {
+  margin-top: 0.5rem;
+  transition: 0.2s;
+  display: flex;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  text-decoration: underline;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: medium;
+  line-height: 100%;
+  /* or 100% */
+
+  color: #5d5e60;
+}
+
+.project-name:hover {
+  transform: scale(1.06);
+}

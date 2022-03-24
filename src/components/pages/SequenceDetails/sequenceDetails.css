@@ -1,0 +1,23 @@
+.wrapper {
+  display: grid;
+  /* grid-template-columns: auto auto auto; */
+  grid-template-rows: 20vh auto;
+  background-color: #fff;
+  color: #444;
+  height: 90vh;
+}
+
+.topSeq {
+  padding: 1rem;
+  background-color: #e5e5e5;
+  grid-row: 1;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+.bottomSeq {
+  grid-row: 2 / 4;
+}
+
+.type {
+  padding: 1rem;
+}

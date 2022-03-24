@@ -1,0 +1,69 @@
+.subnavbarWSearch {
+  background: #ffff;
+  border-top: #c4c4c4;
+}
+
+.subnavbarWSearch-title {
+  height: 10px;
+  align-items: center;
+  padding: 1rem 1rem;
+  padding-bottom: 0px;
+  z-index: 10;
+  justify-content: flex-start;
+}
+
+.subnavbarWSearch-title .title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  color: #5d5e60;
+}
+
+.subnavbarWSearch-title .subtitle {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #a8a6a6;
+}
+
+.subnavbarWSearch-links {
+  height: 40px;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.subnavbarWSearch-links .links {
+  justify-content: flex-start;
+}
+
+.subnavbarWSearch-links .search {
+  justify-content: flex-end;
+}
+
+.subnavbarWSearch-item {
+  color: #000;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: medium;
+}
+
+.subnavbarWSearch-item:active {
+  color: #15cdfc;
+  text-decoration: underline;
+}

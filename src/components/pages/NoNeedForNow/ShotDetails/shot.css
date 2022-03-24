@@ -1,0 +1,30 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  background-color: #fff;
+  color: #444;
+  height: 90vh;
+}
+
+.grid {
+  padding: 20px;
+  font-size: 150%;
+}
+
+.top-shot {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+.left {
+  border-right: 2px solid #c4c4c4;
+  grid-column: 1 / 3;
+  grid-row: 2 / 4;
+}
+
+.right {
+  grid-column: 3;
+  grid-row: 2 / 4;
+}
