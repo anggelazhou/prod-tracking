@@ -31,6 +31,15 @@ const shotReducer = (state = initState, action) => {
         ...state,
         activeShotId: action.payload,
       };
+    case "START_ADD_SHOT":
+      return {
+        ...state,
+      };
+    case "ADD_OK":
+      return {
+        ...state,
+        sequences: [...state.shots, action.payload],
+      };
     default:
       return state;
   }

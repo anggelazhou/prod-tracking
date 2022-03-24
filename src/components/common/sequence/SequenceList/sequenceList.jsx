@@ -2,9 +2,8 @@ import React from "react";
 // import "@fontsource/quantico";
 import "@fontsource/roboto";
 import "./sequenceList.css";
-import { Link } from "react-router-dom";
 import Sequence from "../Sequence";
-import { connect, useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const SequenceList = () => {
   const sequences = useSelector((store) => {

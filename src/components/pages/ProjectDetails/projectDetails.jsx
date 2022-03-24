@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TypesSubNavBar from "../../common/layout/TypeSubNavbar";
 import SequenceList from "../../common/sequence/SequenceList";
-import NewForm from "../../common/newForm";
+import NewForm from "../../common/newSequenceForm";
 // import "@fontsource/quantico";
 import "@fontsource/roboto";
 import "./projectDetails.css";

@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TypesSubNavBar from "../../common/layout/TypeSubNavbar";
 import ShotList from "../../common/shot/ShotList";
-import SequenceList from "../../common/sequence/SequenceList";
+import NewForm from "../../common/newShotForm";
 // import "@fontsource/quantico";
 import "@fontsource/roboto";
 import "./sequenceDetails.css";
@@ -12,15 +12,25 @@ import { fetchShots } from "../../../store/actions/shotActions";
 
 const SequenceDetails = ({ shots, startFetchShots }) => {
   const { id } = useParams();
+
   useEffect(() => {
     startFetchShots(id);
   }, []);
+
+  const [openForm, setOpenForm] = useState(false);
+
   return (
     <div>
       <TypesSubNavBar />
       <div className="wrapper">
         <div className="topSeq">
           <a>Sequence number - {id}</a>
+          <div>
+            <button className="openFormBtn" onClick={() => setOpenForm(true)}>
+              New
+            </button>
+            {openForm && <NewForm seqId={id} closeForm={setOpenForm} />}
+          </div>
         </div>
         <div className="bottomSeq">
           <a className="type">Shots</a>
@@ -29,7 +39,7 @@ const SequenceDetails = ({ shots, startFetchShots }) => {
           ) : shots.errorMsg ? (
             <div className="error">ERROR: {shots.errorMsg}</div>
           ) : (
-            <ShotList shots={shots.shots} />
+            <ShotList />
           )}
         </div>
       </div>

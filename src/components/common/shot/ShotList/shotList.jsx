@@ -2,11 +2,13 @@ import React from "react";
 // import "@fontsource/quantico";
 import "@fontsource/roboto";
 import "./shotList.css";
-import { Link } from "react-router-dom";
 import Shot from "../Shot";
-import { connect, useSelect, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-const ShotList = ({ shots }) => {
+const ShotList = () => {
+  const shots = useSelector((store) => {
+    return store.sequences.sequences;
+  });
   return (
     <div className="shots">
       {shots &&
