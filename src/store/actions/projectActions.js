@@ -1,5 +1,7 @@
 // import axios from "axios";
-import projectsData from "../../mockData/projects.json";
+import { getProjectData } from "../../mockData";
+
+const projectsData = getProjectData();
 
 export const initLoad = () => {
   return {

@@ -1,5 +1,7 @@
 // import axios from "axios";
-import sequencesData from "../../mockData/sequences.json";
+import { getSequenceData, saveSequence } from "../../mockData";
+
+const sequencesData = getSequenceData();
 
 export const initLoad = () => {
   return {
@@ -49,7 +51,7 @@ export const addFailed = (errorMsg) => {
 };
 
 const doAddSeq = (data) => {
-  sequencesData = [...sequencesData, data];
+  saveSequence(data);
   return Promise.resolve({
     data,
   });

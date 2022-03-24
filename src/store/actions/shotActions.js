@@ -1,5 +1,7 @@
 // import axios from "axios";
-import shotsData from "../../mockData/shots.json";
+import { getShotData, saveShot } from "../../mockData";
+
+const shotsData = getShotData();
 
 export const initLoad = () => {
   return {
