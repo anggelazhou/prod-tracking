@@ -7,7 +7,7 @@ import NewForm from "../../common/newSequenceForm";
 import "@fontsource/roboto";
 import "./projectDetails.css";
 
-import { connect, useSelect, useDispatch, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { fetchSequences } from "../../../store/actions/seqActions";
 
 const ProjectDetails = ({ sequences, startFetchSequences }) => {

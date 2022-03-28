@@ -1,15 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./NewForm.css";
 import "@fontsource/roboto";
 import { useDispatch } from "react-redux";
 import { addShot } from "../../../store/actions/shotActions";
 
-function NewForm({ seqId, closeForm }) {
+function NewForm({ seqName, seqId, closeForm }) {
   const dispatch = useDispatch();
   const createSequence = (event) => {
     const id = event.target.shotID.value;
-    const name = event.target.shotName.value;
+    const name = seqName + event.target.shotName.value;
     const img = event.target.shotImg.value;
 
     dispatch(addShot(id, name, seqId, img));
@@ -28,11 +27,19 @@ function NewForm({ seqId, closeForm }) {
         <form onSubmit={(event) => createSequence(event)}>
           <div className="body">
             <label>Shot ID: </label>
-            <input id="id" name="shotID" />
+            <input id="id" name="shotID" required />
           </div>
           <div className="body">
             <label>Shot Name: </label>
-            <input id="name" name="shotName" />
+            <a> {seqName}</a>
+            <input id="seqName" name="seqName" type="hidden" value={seqName} />
+            <input
+              id="name"
+              name="shotName"
+              type="text"
+              pattern="[0-9]{4}"
+              required
+            />
           </div>
           <div className="body">
             <label>Image: </label>

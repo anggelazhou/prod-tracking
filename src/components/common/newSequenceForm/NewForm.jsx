@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NewForm.css";
 import "@fontsource/roboto";
-import { connect, useSelect, useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addSequence } from "../../../store/actions/seqActions";
 
 function NewForm({ projId, closeForm }) {
   const dispatch = useDispatch();
+
   const createSequence = (event) => {
     const id = event.target.seqID.value;
     const name = event.target.seqName.value;
@@ -27,11 +28,17 @@ function NewForm({ projId, closeForm }) {
         <form onSubmit={(event) => createSequence(event)}>
           <div className="body">
             <label>Sequence ID: </label>
-            <input id="id" name="seqID" />
+            <input id="id" name="seqID" required />
           </div>
           <div className="body">
             <label>Sequence Name: </label>
-            <input id="name" name="seqName" />
+            <input
+              id="name"
+              name="seqName"
+              type="text"
+              pattern="[0-9]{4}"
+              required
+            />
           </div>
           <div className="footer">
             <button onClick={() => closeForm(false)} id="cancelBtn">

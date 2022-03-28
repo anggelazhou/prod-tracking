@@ -8,7 +8,10 @@ const Sequence = ({ sequence }) => {
   return (
     <div className="cardSeq">
       <div className="card-contentSeq">
-        <Link to={`/sequences/${sequence.id}/shots`} className="seq-name">
+        <Link
+          to={`/sequences/${sequence.id}/shots?seqName=${sequence.seqName}`}
+          className="seq-name"
+        >
           {sequence.seqName}
         </Link>
       </div>

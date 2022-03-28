@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import TypesSubNavBar from "../../common/layout/TypeSubNavbar";
 import ShotList from "../../common/shot/ShotList";
 import NewForm from "../../common/newShotForm";
@@ -12,6 +12,9 @@ import { fetchShots } from "../../../store/actions/shotActions";
 
 const SequenceDetails = ({ shots, startFetchShots }) => {
   const { id } = useParams();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const seqName = searchParams.get("seqName");
 
   useEffect(() => {
     startFetchShots(id);
@@ -29,7 +32,9 @@ const SequenceDetails = ({ shots, startFetchShots }) => {
             <button className="openFormBtn" onClick={() => setOpenForm(true)}>
               New
             </button>
-            {openForm && <NewForm seqId={id} closeForm={setOpenForm} />}
+            {openForm && (
+              <NewForm seqName={seqName} seqId={id} closeForm={setOpenForm} />
+            )}
           </div>
         </div>
         <div className="bottomSeq">
