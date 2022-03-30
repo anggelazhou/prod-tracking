@@ -5,7 +5,7 @@ import "./sequenceList.css";
 import Sequence from "../Sequence";
 import { useSelector } from "react-redux";
 
-const SequenceList = () => {
+const SequenceList = ({ projId }) => {
   const sequences = useSelector((store) => {
     return store.sequences.sequences;
   });
@@ -17,6 +17,7 @@ const SequenceList = () => {
             <Sequence
               sequence={sequence}
               key={sequence.id}
+              projId={projId}
               className="sequence"
             />
           );

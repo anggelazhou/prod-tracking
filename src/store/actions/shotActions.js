@@ -1,4 +1,5 @@
 // import axios from "axios";
+import ShotgunApi from "../../components/api/shotgunAPI";
 import { getShotData, saveShot } from "../../mockData";
 
 const shotsData = getShotData();
@@ -79,7 +80,26 @@ const doFetch = (seqID) => {
   // return Promise.reject( ... );
 };
 
-export const fetchShots = (seqID) => {
+export const fetchShots = (projID, seqID) => {
+  return (dispatch) => {
+    dispatch(initLoad());
+    console.log(seqID);
+    ShotgunApi.getShotsForSequence(projID, seqID)
+      .then((response) => {
+        const loadedShots = response.data;
+        console.log(response);
+        const myAction = loadOk(loadedShots);
+        dispatch(myAction);
+        // dispatch(loadOk(response.data));
+      })
+      .catch((err) => {
+        const myAction = loadFailed(err.message);
+        dispatch(myAction);
+      });
+  };
+};
+
+export const fetchShots2 = (seqID) => {
   return (dispatch) => {
     dispatch(initLoad());
     doFetch(seqID)

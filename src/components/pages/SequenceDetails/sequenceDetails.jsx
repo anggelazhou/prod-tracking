@@ -15,9 +15,11 @@ const SequenceDetails = ({ shots, startFetchShots }) => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const seqName = searchParams.get("seqName");
+  const projId = searchParams.get("projID");
 
   useEffect(() => {
-    startFetchShots(id);
+    console.log(projId, id);
+    startFetchShots(projId, id);
   }, []);
 
   const [openForm, setOpenForm] = useState(false);
@@ -60,7 +62,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startFetchShots: (id) => dispatch(fetchShots(id)),
+    startFetchShots: (projId, id) => dispatch(fetchShots(projId, id)),
   };
 };
 

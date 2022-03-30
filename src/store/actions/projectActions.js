@@ -1,5 +1,6 @@
-// import axios from "axios";
+import axios from "axios";
 import { getProjectData } from "../../mockData";
+import ShotgunApi from "../../components/api/shotgunAPI";
 
 const projectsData = getProjectData();
 
@@ -37,6 +38,24 @@ const doFetch = () => {
 };
 
 export const fetchProjects = () => {
+  return (dispatch) => {
+    dispatch(initLoad());
+    ShotgunApi.getProjects()
+      .then((response) => {
+        console.log(response);
+        const loadedProjects = response;
+        const myAction = loadOk(loadedProjects);
+        dispatch(myAction);
+        // dispatch(loadOk(response.data));
+      })
+      .catch((err) => {
+        const myAction = loadFailed(err.message);
+        dispatch(myAction);
+      });
+  };
+};
+
+export const fetchProjects2 = () => {
   return (dispatch) => {
     dispatch(initLoad());
     doFetch()

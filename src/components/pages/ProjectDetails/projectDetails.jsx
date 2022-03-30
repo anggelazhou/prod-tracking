@@ -13,9 +13,11 @@ import { fetchSequences } from "../../../store/actions/seqActions";
 const ProjectDetails = ({ sequences, startFetchSequences }) => {
   const { id } = useParams();
 
+  console.log(id);
+
   useEffect(() => {
     startFetchSequences(id);
-  }, []);
+  }, [id]);
 
   const [openForm, setOpenForm] = useState(false);
 
@@ -38,7 +40,7 @@ const ProjectDetails = ({ sequences, startFetchSequences }) => {
           ) : sequences.errorMsg ? (
             <div className="error">ERROR: {sequences.errorMsg}</div>
           ) : (
-            <SequenceList />
+            <SequenceList projId={id} />
           )}
         </div>
         {/* <div className="grid left">Info</div> */}

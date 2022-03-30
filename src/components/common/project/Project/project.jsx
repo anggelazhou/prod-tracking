@@ -9,7 +9,7 @@ const Project = ({ project }) => {
     <div className="card">
       <div className="card-content">
         <div className="image-container">
-          <img src={project.img} />
+          <img src={project.image} />
         </div>
         <Link to={`/projects/${project.id}/sequences`} className="project-name">
           {project.name}

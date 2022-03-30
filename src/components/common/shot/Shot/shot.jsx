@@ -9,10 +9,10 @@ const Shot = ({ shot }) => {
     <div className="cardShot">
       <div className="card-contentShot">
         <div className="image-container">
-          <img src={shot.img} />
+          <img src={shot.image} />
         </div>
         {/* <Link to={`/shots/${shot.id}`} className="shot-name"> */}
-        {shot.shotName}
+        {shot.code}
         {/* </Link> */}
       </div>
     </div>
