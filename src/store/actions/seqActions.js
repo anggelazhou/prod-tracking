@@ -63,10 +63,10 @@ const doAddSeq = (data) => {
 export const addSequence = (projectId, sequenceId, sequenceName) => {
   return (dispatch) => {
     dispatch(startAddSeq());
-    const seqData = { projectId, id: sequenceId, seqName: sequenceName };
-    doAddSeq(seqData)
+    const code = { projectId, id: sequenceId, code: sequenceName };
+    doAddSeq(code)
       .then((response) => {
-        dispatch(addOk(seqData));
+        dispatch(addOk(code));
       })
       .catch((err) => {
         const myAction = addFailed(err.message);

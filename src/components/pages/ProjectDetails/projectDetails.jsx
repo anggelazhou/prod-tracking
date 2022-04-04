@@ -13,8 +13,6 @@ import { fetchSequences } from "../../../store/actions/seqActions";
 const ProjectDetails = ({ sequences, startFetchSequences }) => {
   const { id } = useParams();
 
-  console.log(id);
-
   useEffect(() => {
     startFetchSequences(id);
   }, [id]);

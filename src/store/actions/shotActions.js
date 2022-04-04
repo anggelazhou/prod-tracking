@@ -61,7 +61,12 @@ const doAddShot = (data) => {
 export const addShot = (shotId, shotName, seqId, shotImg) => {
   return (dispatch) => {
     dispatch(startAddShot());
-    const shotData = { id: shotId, shotName, seqId, img: shotImg };
+    const shotData = {
+      id: shotId,
+      code: shotName,
+      sg_sequence: seqId,
+      image: shotImg,
+    };
     doAddShot(shotData)
       .then((response) => {
         dispatch(addOk(shotData));

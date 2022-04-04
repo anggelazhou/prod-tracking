@@ -2,11 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NewForm.css";
 import "@fontsource/roboto";
+import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addSequence } from "../../../store/actions/seqActions";
 
 function NewForm({ projId, closeForm }) {
   const dispatch = useDispatch();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const createSequence = (event) => {
     const id = event.target.seqID.value;
@@ -14,6 +21,8 @@ function NewForm({ projId, closeForm }) {
 
     dispatch(addSequence(projId, id, name));
   };
+
+  console.log(errors);
 
   return (
     <div className="modal-background">
@@ -25,20 +34,22 @@ function NewForm({ projId, closeForm }) {
           <a>Create a new Sequence</a>
           <a> - Global Form</a>
         </div>
-        <form onSubmit={(event) => createSequence(event)}>
+        {/* <form onSubmit={(event) => createSequence(event)}> */}
+        <form onSubmit={handleSubmit(createSequence)}>
           <div className="body">
             <label>Sequence ID: </label>
-            <input id="id" name="seqID" required />
+            <input id="id" {...register("seqID", { required: true })} />
           </div>
           <div className="body">
             <label>Sequence Name: </label>
             <input
               id="name"
-              name="seqName"
-              type="text"
-              pattern="[0-9]{4}"
-              required
+              {...register("seqName", {
+                required: true,
+                pattern: "[0-9]{4}",
+              })}
             />
+            {errors.seqName && <div>Required</div>}
           </div>
           <div className="footer">
             <button onClick={() => closeForm(false)} id="cancelBtn">
