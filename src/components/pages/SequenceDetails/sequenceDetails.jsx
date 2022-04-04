@@ -45,6 +45,8 @@ const SequenceDetails = ({ shots, startFetchShots }) => {
             <div className="loading">Loading...</div>
           ) : shots.errorMsg ? (
             <div className="error">ERROR: {shots.errorMsg}</div>
+          ) : shots.shots.length == 0 ? (
+            <div className="none">No shots</div>
           ) : (
             <ShotList />
           )}

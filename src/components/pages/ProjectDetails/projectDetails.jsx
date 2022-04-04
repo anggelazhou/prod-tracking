@@ -37,6 +37,8 @@ const ProjectDetails = ({ sequences, startFetchSequences }) => {
             <div className="loading">Loading...</div>
           ) : sequences.errorMsg ? (
             <div className="error">ERROR: {sequences.errorMsg}</div>
+          ) : sequences.sequences.length == 0 ? (
+            <div className="none">No sequences</div>
           ) : (
             <SequenceList projId={id} />
           )}
