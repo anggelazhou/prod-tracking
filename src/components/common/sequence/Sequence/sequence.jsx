@@ -9,7 +9,7 @@ const Sequence = ({ sequence, projId }) => {
     <div className="cardSeq">
       <div className="card-contentSeq">
         <Link
-          to={`/sequences/${sequence.id}/shots?seqName=${sequence.code}&projID=${projId}`}
+          to={`/projects/${projId}/sequences/${sequence.id}/shots`}
           className="seq-name"
         >
           {sequence.code}

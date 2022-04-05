@@ -30,7 +30,7 @@ function App() {
           />
           <Route
             exact
-            path="/sequences/:id/shots"
+            path="/projects/:pid/sequences/:id/shots"
             element={<SequenceDetails />}
           />
           {/* <Route exact path="/shots/:id" element={<Shot />} /> */}
