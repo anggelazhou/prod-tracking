@@ -6,20 +6,20 @@ const sequencesData = getSequenceData();
 
 export const initLoad = () => {
   return {
-    type: "LOAD_INIT",
+    type: "LOAD_SEQUENCE_INIT",
   };
 };
 
 export const loadOk = (sequences) => {
   return {
-    type: "LOAD_OK",
+    type: "LOAD_SEQUENCE_OK",
     payload: sequences,
   };
 };
 
 export const loadFailed = (errorMsg) => {
   return {
-    type: "LOAD_FAILED",
+    type: "LOAD_SEQUENCE_FAILED",
     payload: errorMsg,
   };
 };
@@ -39,14 +39,14 @@ export const startAddSeq = () => {
 
 export const addOk = (data) => {
   return {
-    type: "ADD_OK",
+    type: "ADD_SEQUENCE_OK",
     payload: data,
   };
 };
 
 export const addFailed = (errorMsg) => {
   return {
-    type: "ADD_FAILED",
+    type: "ADD_SEQUENCE_FAILED",
     payload: errorMsg,
   };
 };

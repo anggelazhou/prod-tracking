@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const ShotList = () => {
   const shots = useSelector((store) => {
-    return store.sequences.sequences;
+    return store.shots.shots;
   });
   return (
     <div className="shots">

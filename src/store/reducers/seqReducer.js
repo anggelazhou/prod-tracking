@@ -7,26 +7,26 @@ const initState = {
 
 const seqReducer = (state = initState, action) => {
   switch (action.type) {
-    case "LOAD_INIT":
+    case "LOAD_SEQUENCE_INIT":
       return {
         ...state,
         loading: true,
       };
-    case "LOAD_OK":
+    case "LOAD_SEQUENCE_OK":
       return {
         loading: false,
         errorMsg: null,
         activeSequenceId: 0,
         sequences: action.payload,
       };
-    case "LOAD_FAILED":
+    case "LOAD_SEQUENCE_FAILED":
       return {
         loading: false,
         errorMsg: action.payload,
         activeSequenceId: 0,
         sequences: [],
       };
-    case "SELECT_SEQUENCE":
+    case "SELECT_SEQUENCE_SEQUENCE":
       return {
         ...state,
         activeSequenceId: action.payload,
@@ -35,7 +35,7 @@ const seqReducer = (state = initState, action) => {
       return {
         ...state,
       };
-    case "ADD_OK":
+    case "ADD_SEQUENCE_OK":
       return {
         ...state,
         sequences: [...state.sequences, action.payload],

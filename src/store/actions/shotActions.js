@@ -6,28 +6,21 @@ const shotsData = getShotData();
 
 export const initLoad = () => {
   return {
-    type: "LOAD_INIT",
+    type: "LOAD_SHOT_INIT",
   };
 };
 
 export const loadOk = (shots) => {
   return {
-    type: "LOAD_OK",
+    type: "LOAD_SHOT_OK",
     payload: shots,
   };
 };
 
 export const loadFailed = (errorMsg) => {
   return {
-    type: "LOAD_FAILED",
+    type: "LOAD_SHOT_FAILED",
     payload: errorMsg,
-  };
-};
-
-export const selectShot = (shotId) => {
-  return {
-    type: "SELECT_SHOT",
-    payload: shotId,
   };
 };
 
@@ -39,14 +32,14 @@ export const startAddShot = () => {
 
 export const addOk = (data) => {
   return {
-    type: "ADD_OK",
+    type: "ADD_SHOT_OK",
     payload: data,
   };
 };
 
 export const addFailed = (errorMsg) => {
   return {
-    type: "ADD_FAILED",
+    type: "ADD_SHOT_FAILED",
     payload: errorMsg,
   };
 };

@@ -7,19 +7,20 @@ import NewForm from "../../common/newShotForm";
 import "@fontsource/roboto";
 import "./sequenceDetails.css";
 
-import { connect, useSelect, useDispatch, useSelector } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { fetchShots } from "../../../store/actions/shotActions";
 
 const SequenceDetails = ({ shots, startFetchShots }) => {
-  const { id } = useParams();
+  const { pid, id } = useParams();
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const seqName = searchParams.get("seqName");
-  const projId = searchParams.get("projID");
+  const currSeq = useSelector((store) => {
+    const seqs = store.sequences.sequences.filter((seq) => seq.id == id);
+    return seqs && seqs.length == 1 ? seqs[0] : null;
+  });
 
   useEffect(() => {
-    console.log(projId, id);
-    startFetchShots(projId, id);
+    console.log(pid, id);
+    startFetchShots(pid, id);
   }, []);
 
   const [openForm, setOpenForm] = useState(false);
@@ -29,13 +30,17 @@ const SequenceDetails = ({ shots, startFetchShots }) => {
       <TypesSubNavBar />
       <div className="wrapper">
         <div className="topSeq">
-          <a>Sequence number - {id}</a>
+          <a>Sequence - {currSeq?.code} </a>
           <div>
             <button className="openFormBtn" onClick={() => setOpenForm(true)}>
               New
             </button>
             {openForm && (
-              <NewForm seqName={seqName} seqId={id} closeForm={setOpenForm} />
+              <NewForm
+                seqName={currSeq.code}
+                seqId={id}
+                closeForm={setOpenForm}
+              />
             )}
           </div>
         </div>
@@ -45,6 +50,8 @@ const SequenceDetails = ({ shots, startFetchShots }) => {
             <div className="loading">Loading...</div>
           ) : shots.errorMsg ? (
             <div className="error">ERROR: {shots.errorMsg}</div>
+          ) : shots.shots.length == 0 ? (
+            <div className="none">No shots</div>
           ) : (
             <ShotList />
           )}
@@ -62,7 +69,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startFetchShots: (projId, id) => dispatch(fetchShots(projId, id)),
+    startFetchShots: (projId, seqId) => dispatch(fetchShots(projId, seqId)),
   };
 };
 
