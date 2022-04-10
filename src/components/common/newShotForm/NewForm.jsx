@@ -4,14 +4,18 @@ import "@fontsource/roboto";
 import { useDispatch } from "react-redux";
 import { addShot } from "../../../store/actions/shotActions";
 
-function NewForm({ seqName, seqId, closeForm }) {
+function NewForm({ projId, seqId, seqName, closeForm }) {
   const dispatch = useDispatch();
   const createSequence = (event) => {
-    const id = event.target.shotID.value;
+    // TODO: change to react hook form
+    // const name = seqName + event.shotName;
+    // const img = event.shotImg;
+
     const name = seqName + event.target.shotName.value;
     const img = event.target.shotImg.value;
 
-    dispatch(addShot(id, name, seqId, img));
+    dispatch(addShot(projId, seqId, name, img));
+    closeForm(false);
   };
 
   return (
@@ -25,10 +29,6 @@ function NewForm({ seqName, seqId, closeForm }) {
           <a> - Global Form</a>
         </div>
         <form onSubmit={(event) => createSequence(event)}>
-          <div className="body">
-            <label>Shot ID: </label>
-            <input id="id" name="shotID" required />
-          </div>
           <div className="body">
             <label>Shot Name: </label>
             <a> {seqName}</a>

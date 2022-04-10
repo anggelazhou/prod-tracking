@@ -1,7 +1,7 @@
-.wrapper {
+.wrapperSeq {
   display: grid;
   /* grid-template-columns: auto auto auto; */
-  grid-template-rows: 20vh auto;
+  grid-template-rows: 10vh auto;
   background-color: #fff;
   color: #444;
   height: 90vh;
@@ -12,12 +12,41 @@
   background-color: #e5e5e5;
   grid-row: 1;
   border-bottom: 2px solid #dfdfdf;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seqName {
+  align-items: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  color: #5d5e60;
+}
+
+.openFormBtn {
+  /* button stuff */
 }
 
 .bottomSeq {
   grid-row: 2 / 4;
 }
 
-.type {
+.typeShot {
+  padding: 1rem 0rem 0rem 1rem;
+}
+
+.loading {
+  padding: 1rem;
+}
+
+.error {
+  padding: 1rem;
+}
+
+.none {
   padding: 1rem;
 }

@@ -1,6 +1,10 @@
 import React, { PropTypes } from "react";
 import axios from "axios";
 import CONSTS from "../constants";
+import {
+  saveSequence as mockSaveSequence,
+  saveShot as mockSaveShot,
+} from "./mockBackend.js";
 
 const config = {
   headers: {
@@ -178,6 +182,14 @@ class ShotgunApi {
         console.log("Error fetching project info from shotgun " + err);
         return err;
       });
+  }
+
+  static saveSequence(projID, seqData) {
+    return Promise.resolve(mockSaveSequence(seqData));
+  }
+
+  static saveShot(projID, seqID, shotData) {
+    return Promise.resolve(mockSaveShot(shotData));
   }
 }
 

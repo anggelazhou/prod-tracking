@@ -1,7 +1,7 @@
 .wrapper {
   display: grid;
   /* grid-template-columns: auto auto auto; */
-  grid-template-rows: 20vh auto;
+  grid-template-rows: 22vh auto;
   background-color: #fff;
   color: #444;
   height: 90vh;
@@ -9,16 +9,66 @@
 
 .top {
   padding: 1rem;
-  background-color: #e5e5e5;
   /* grid-column: 1 / 4; */
   grid-row: 1;
-  border-bottom: 2px solid #dfdfdf;
+  border-bottom: 1.5px solid #c4c4c4;
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle {
+  /* padding: 1rem; */
+  /* grid-column: 1 / 4; */
+  /* grid-row: 2; */
+  display: table;
+}
+
+.proj-img {
+  height: 15vh;
+}
+
+.proj-name {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  color: #5d5e60;
+  padding: 0rem 0rem 1rem 0rem;
+}
+
+.type {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+
+  color: #989898;
+}
+
+.button-sec {
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.openFormBtn {
+  /* button stuff */
+  border: none;
+  background-color: white;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: medium;
+  line-height: 24px;
+
+  color: #8f8f90;
 }
 
 .bottom {
   /* margin: 1rem; */
   /* grid-column: 1 / 3; */
-  grid-row: 2 / 4;
+  grid-row: 3 / 4;
 }
 
 /* .left {
@@ -31,3 +81,19 @@
   grid-column: 3;
   grid-row: 2 / 4;
 } */
+
+.typeSeq {
+  padding: 1rem 0rem 0rem 1rem;
+}
+
+.loading {
+  padding: 1rem;
+}
+
+.error {
+  padding: 1rem;
+}
+
+.none {
+  padding: 1rem;
+}
