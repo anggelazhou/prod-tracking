@@ -7,11 +7,16 @@ import NewForm from "../../common/newSequenceForm";
 import "@fontsource/roboto";
 import "./projectDetails.css";
 
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { fetchSequences } from "../../../store/actions/seqActions";
 
 const ProjectDetails = ({ sequences, startFetchSequences }) => {
   const { id } = useParams();
+
+  const currProj = useSelector((store) => {
+    const projs = store.projects.projects.filter((proj) => proj.id == id);
+    return projs && projs.length == 1 ? projs[0] : null;
+  });
 
   useEffect(() => {
     startFetchSequences(id);
@@ -21,18 +26,32 @@ const ProjectDetails = ({ sequences, startFetchSequences }) => {
 
   return (
     <div>
-      <TypesSubNavBar />
+      {/* <TypesSubNavBar /> */}
       <div className="wrapper">
         <div className="top">
-          <a>Project number - {id}</a>
           <div>
-            <button className="openFormBtn" onClick={() => setOpenForm(true)}>
-              New
-            </button>
+            <div className="proj-name">
+              {currProj.name}
+              <a className="type"> {">"} SEQUENCES</a>
+            </div>
+
+            <img
+              src={currProj.image}
+              alt="project image"
+              className="proj-img"
+            />
+          </div>
+          <div className="middle">
+            <div className="button-sec">
+              <button className="openFormBtn" onClick={() => setOpenForm(true)}>
+                + Create New Sequence
+              </button>
+            </div>
           </div>
           {openForm && <NewForm projId={id} closeForm={setOpenForm} />}
         </div>
         <div className="bottom">
+          {/* <div className="typeSeq">Sequences</div> */}
           {sequences.loading ? (
             <div className="loading">Loading...</div>
           ) : sequences.errorMsg ? (

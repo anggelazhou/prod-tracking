@@ -1,7 +1,3 @@
-import projectTestData from "./projects.json";
-import seqTestData from "./sequences.json";
-import shotTestData from "./shots.json";
-
 // const projectKey = "projectsData";
 // const sequenceKey = "sequencesData";
 // const shotKey = "shotsData";
@@ -12,9 +8,12 @@ const initStorage = (key, value) => {
   }
 };
 
-initStorage("projectsData", projectTestData);
-initStorage("sequencesData", seqTestData);
-initStorage("shotsData", shotTestData);
+initStorage("projectsData", []);
+initStorage("sequencesData", []);
+initStorage("shotsData", []);
+
+initStorage("sequenceID", 100000);
+initStorage("shotID", 10000);
 
 // export const getProjectData = () =>
 //   JSON.parse(sessionStorage.getItem(projectKey));
@@ -36,20 +35,23 @@ export const getShotData = () => {
   return JSON.parse(sessionStorage.getItem("shotsData"));
 };
 
-export const saveProject = (data) => {
-  sessionStorage.setItem(
-    "projectsData",
-    JSON.stringify([...getProjectData(), data])
-  );
-};
-
 export const saveSequence = (data) => {
+  const lastSeqID = sessionStorage.getItem("sequenceID");
+  data.id = parseInt(lastSeqID) + 1;
+  sessionStorage.setItem("sequenceID", JSON.stringify(data.id));
   sessionStorage.setItem(
     "sequencesData",
     JSON.stringify([...getSequenceData(), data])
   );
+
+  return data;
 };
 
 export const saveShot = (data) => {
+  const lastShotID = sessionStorage.getItem("shotID");
+  data.id = parseInt(lastShotID) + 1;
+  sessionStorage.setItem("shotID", JSON.stringify(data.id));
   sessionStorage.setItem("shotsData", JSON.stringify([...getShotData(), data]));
+
+  return data;
 };

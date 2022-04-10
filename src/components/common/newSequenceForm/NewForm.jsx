@@ -16,10 +16,10 @@ function NewForm({ projId, closeForm }) {
   } = useForm();
 
   const createSequence = (event) => {
-    const id = event.target.seqID.value;
-    const name = event.target.seqName.value;
+    const name = event.seqName;
 
-    dispatch(addSequence(projId, id, name));
+    dispatch(addSequence(projId, name));
+    closeForm(false);
   };
 
   console.log(errors);
@@ -37,16 +37,11 @@ function NewForm({ projId, closeForm }) {
         {/* <form onSubmit={(event) => createSequence(event)}> */}
         <form onSubmit={handleSubmit(createSequence)}>
           <div className="body">
-            <label>Sequence ID: </label>
-            <input id="id" {...register("seqID", { required: true })} />
-          </div>
-          <div className="body">
             <label>Sequence Name: </label>
             <input
               id="name"
               {...register("seqName", {
                 required: true,
-                pattern: "[0-9]{4}",
               })}
             />
             {errors.seqName && <div>Required</div>}
