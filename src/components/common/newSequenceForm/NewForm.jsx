@@ -37,7 +37,7 @@ function NewForm({ projId, closeForm }) {
         {/* <form onSubmit={(event) => createSequence(event)}> */}
         <form onSubmit={handleSubmit(createSequence)}>
           <div className="body">
-            <label>Sequence Name: </label>
+            <label className="label">Sequence Name: </label>
             <input
               id="name"
               {...register("seqName", {

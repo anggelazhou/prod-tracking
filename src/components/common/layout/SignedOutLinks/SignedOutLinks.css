@@ -1,10 +1,9 @@
 .button-link {
   border-radius: 4px;
-  background: #980e21;
+  background: #a11929;
   padding: 10px 60px;
-  color: #fff;
-  outline: none;
-  border: none;
+  color: white;
+  border: white 1pt solid;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;

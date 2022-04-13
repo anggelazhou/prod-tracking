@@ -9,32 +9,30 @@ import axios from "axios";
 const AUTH_URL = "https://auth.d2.com/";
 
 function Login() {
-  const env = "de"; //change
-
-  const adminUser = {
-    username: "dm-rest-api",
-    password: "dm-rest-api",
+  const saltedAuth = btoa("dm-rest-api:dm-rest-api");
+  const axiosConfig = {
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "X-Requested-With",
+      Authorization: `Basic ${saltedAuth}`,
+    },
   };
 
   const [user, setUser] = useState({ username: "" });
   const [error, setError] = useState("");
+  const [loginOk, setLoginOk] = useState(false);
 
   const handleLogin = async (details) => {
-    console.log(details);
+    const response = await axios.post(
+      AUTH_URL,
+      { username: details.username, password: details.password },
+      axiosConfig
+    );
+    console.log(details.username);
+    console.log(response);
+    setLoginOk(response.data === true);
 
-    let loginOk = false;
-    if (env === "dev") {
-      loginOk =
-        details.username === adminUser.username &&
-        details.password === adminUser.password;
-    } else {
-      const response = await axios.post(
-        AUTH_URL,
-        {},
-        { auth: { username: details.username, password: details.password } }
-      );
-      loginOk = response.status === 200;
-    }
     if (loginOk) {
       setUser({ username: details.username });
       console.log("Logged in, welcome " + details.username);
@@ -50,11 +48,11 @@ function Login() {
 
   return (
     <>
-      {user.username != "" ? (
+      {loginOk ? (
         <div>Logged in!</div>
       ) : (
         <div className="login">
-          <LoginForm Login={handleLogin} error={error} />
+          <LoginForm Login={handleLogin} error={error} user={user} />
         </div>
       )}
     </>

@@ -30,8 +30,8 @@ function NewForm({ projId, seqId, seqName, closeForm }) {
         </div>
         <form onSubmit={(event) => createSequence(event)}>
           <div className="body">
-            <label>Shot Name: </label>
-            <a> {seqName}</a>
+            <label className="label">Shot Name: </label>
+            <a className="shotBegin"> {seqName}</a>
             <input id="seqName" name="seqName" type="hidden" value={seqName} />
             <input
               id="name"
@@ -41,10 +41,10 @@ function NewForm({ projId, seqId, seqName, closeForm }) {
               required
             />
           </div>
-          <div className="body">
+          {/* <div className="body">
             <label>Image: </label>
             <input id="img" name="shotImg" />
-          </div>
+          </div> */}
           <div className="footer">
             <button onClick={() => closeForm(false)} id="cancelBtn">
               Cancel

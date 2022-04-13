@@ -1,7 +1,7 @@
 .wrapperSeq {
   display: grid;
   /* grid-template-columns: auto auto auto; */
-  grid-template-rows: 10vh auto;
+  grid-template-rows: 8vh auto;
   background-color: #fff;
   color: #444;
   height: 90vh;
@@ -9,9 +9,8 @@
 
 .topSeq {
   padding: 1rem;
-  background-color: #e5e5e5;
   grid-row: 1;
-  border-bottom: 2px solid #dfdfdf;
+  /* border-bottom: 1.5px solid #c4c4c4; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,8 +26,26 @@
   color: #5d5e60;
 }
 
+.type {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+
+  color: #989898;
+}
+
 .openFormBtn {
-  /* button stuff */
+  border: none;
+  background-color: white;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: medium;
+  line-height: 24px;
+
+  color: #8f8f90;
 }
 
 .bottomSeq {
@@ -36,7 +53,7 @@
 }
 
 .typeShot {
-  padding: 1rem 0rem 0rem 1rem;
+  padding: 0rem 0rem 0rem 1rem;
 }
 
 .loading {

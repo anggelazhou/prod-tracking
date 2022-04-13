@@ -12,8 +12,8 @@
 }
 
 .form-container {
-  width: 50vw;
-  height: 70vh;
+  width: 30vw;
+  height: 30vh;
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -27,6 +27,16 @@
   text-align: center;
   margin-top: 10px;
   padding-bottom: 1rem;
+}
+
+.label {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: medium;
+  padding-right: 1rem;
+
+  color: #67686a;
 }
 
 .title-close-btn {

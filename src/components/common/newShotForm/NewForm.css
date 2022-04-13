@@ -12,8 +12,8 @@
 }
 
 .form-container {
-  width: 50vw;
-  height: 70vh;
+  width: 30vw;
+  height: 30vh;
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -48,6 +48,26 @@
   align-items: center;
   font-size: 1.7rem;
   text-align: center;
+  padding-bottom: 2rem;
+}
+
+.label {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: medium;
+
+  color: #67686a;
+}
+
+.shotBegin {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: medium;
+  padding-right: 0.2rem;
+
+  color: #67686a;
 }
 
 .form-container .footer {

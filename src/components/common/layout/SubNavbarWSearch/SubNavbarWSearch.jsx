@@ -13,7 +13,7 @@ function SubNavbarWSearch(props) {
         <a className="subtitle">{props.subtitle}</a>
       </section>
       <section className="subnavbarWSearch-links">
-        <section className="links">
+        {/* <section className="links">
           <Link
             to="/sequences"
             className="subnavbarWSearch-item"
@@ -22,7 +22,7 @@ function SubNavbarWSearch(props) {
             buttons
           </Link>
         </section>
-        {/* <section className="search">
+        <section className="search">
           <button className="openFormBtn" onClick={() => setOpenForm(true)}>
             New
           </button>

@@ -30,25 +30,25 @@ const SequenceDetails = ({ shots, startFetchShots }) => {
       {/* <TypesSubNavBar /> */}
       <div className="wrapperSeq">
         <div className="topSeq">
-          <div>
-            <a className="seqName">{currSeq.code}</a>
+          <div className="seqName">
+            {currSeq.code}
+            <a className="type"> {">"} SHOTS</a>
           </div>
-          <div>
+          <div lassName="button-sec">
             <button className="openFormBtn" onClick={() => setOpenForm(true)}>
-              New
+              + Create New Shot
             </button>
-            {openForm && (
-              <NewForm
-                projId={pid}
-                seqId={id}
-                seqName={currSeq.code}
-                closeForm={setOpenForm}
-              />
-            )}
           </div>
+          {openForm && (
+            <NewForm
+              projId={pid}
+              seqId={id}
+              seqName={currSeq.code}
+              closeForm={setOpenForm}
+            />
+          )}
         </div>
         <div className="bottomSeq">
-          <div className="typeShot">Shots</div>
           {shots.loading ? (
             <div className="loading">Loading...</div>
           ) : shots.errorMsg ? (

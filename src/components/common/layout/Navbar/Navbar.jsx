@@ -19,9 +19,8 @@ function Navbar() {
         <a className="logo-text">PROD TRACKER</a>
       </Link>
       <a className="button">
-        <SignedInLinks />
+        {/* <SignedInLinks /> */}
         <SignedOutLinks />
-        {/* CHANGE TO ACC LOGOUT, NOT GO TO FORM */}
       </a>
     </section>
   );

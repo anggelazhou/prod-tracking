@@ -32,7 +32,8 @@
 }
 
 .subnavbarWSearch-links {
-  height: 40px;
+  /* height: 40px; */
+  height: 8px;
   align-items: center;
   padding: 0.8rem 1rem;
   display: flex;
