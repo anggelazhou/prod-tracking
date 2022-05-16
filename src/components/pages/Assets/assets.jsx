@@ -42,7 +42,7 @@ const Assets = ({ assets, startFetchAssets }) => {
             />
           </div>
           <div className="middle">
-            <div className="button-sec">
+            <div className="button-asset">
               <button className="openFormBtn" onClick={() => setOpenForm(true)}>
                 + Create New Asset
               </button>

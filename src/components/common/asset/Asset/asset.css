@@ -1,4 +1,4 @@
-.cardSeq {
+.cardAsset {
   width: 15vw;
   height: 15vh;
   overflow: hidden;
@@ -12,17 +12,17 @@
   /* margin: 1rem; */
 }
 
-.card-contentSeq {
+.card-contentAsset {
   margin: 1rem;
   margin-top: 0.5rem;
 }
 
-.cardSeq:hover {
+.cardAsset:hover {
   transform: scale(1.02);
   box-shadow: 0px 0px 10px 0px;
 }
 
-.seq-name {
+.asset-name {
   margin-top: 0.5rem;
   transition: 0.2s;
   display: flex;
@@ -40,6 +40,6 @@
   color: #5d5e60;
 }
 
-.seq-name:hover {
+.asset-name:hover {
   transform: scale(1.06);
 }

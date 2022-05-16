@@ -1,4 +1,4 @@
-.sequences {
+.assets {
   /* display: flex;
   justify-content: space-between;
   flex-wrap: wrap; */
@@ -7,11 +7,11 @@
   justify-content: space-between;
 }
 
-.sequences::after {
+.assets::after {
   content: "";
   flex: content;
 }
-.sequences > .sequence {
+.assets > .asset {
   flex: 1 1 15%;
   width: 17vw;
   margin: 1rem;
