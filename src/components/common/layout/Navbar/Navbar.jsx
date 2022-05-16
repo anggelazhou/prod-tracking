@@ -10,17 +10,17 @@ import "@fontsource/roboto";
 function Navbar() {
   return (
     <section className="navbar">
-      <Link to="/" className="logo">
+      <Link to="/projects" className="logo">
         <img
-          src={require("../../../static/images/DDlogo.png")}
+          src={require("../../../static/images/DDlogoWhite.png")}
           alt="logo"
           className="img"
         />
         <a className="logo-text">PROD TRACKER</a>
       </Link>
       <a className="button">
-        {/* <SignedInLinks /> */}
-        <SignedOutLinks />
+        <SignedInLinks />
+        {/* <SignedOutLinks /> */}
       </a>
     </section>
   );

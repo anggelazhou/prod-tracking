@@ -10,9 +10,11 @@ const initStorage = (key, value) => {
 
 initStorage("projectsData", []);
 initStorage("sequencesData", []);
+initStorage("assetsData", []);
 initStorage("shotsData", []);
 
 initStorage("sequenceID", 100000);
+initStorage("assetID", 100000);
 initStorage("shotID", 10000);
 
 // export const getProjectData = () =>
@@ -31,6 +33,9 @@ export const getProjectData = () => {
 export const getSequenceData = () => {
   return JSON.parse(sessionStorage.getItem("sequencesData"));
 };
+export const getAssetData = () => {
+  return JSON.parse(sessionStorage.getItem("assetsData"));
+};
 export const getShotData = () => {
   return JSON.parse(sessionStorage.getItem("shotsData"));
 };
@@ -42,6 +47,18 @@ export const saveSequence = (data) => {
   sessionStorage.setItem(
     "sequencesData",
     JSON.stringify([...getSequenceData(), data])
+  );
+
+  return data;
+};
+
+export const saveAsset = (data) => {
+  const lastAssetID = sessionStorage.getItem("assetID");
+  data.id = parseInt(lastAssetID) + 1;
+  sessionStorage.setItem("assetID", JSON.stringify(data.id));
+  sessionStorage.setItem(
+    "assetsData",
+    JSON.stringify([...getAssetData(), data])
   );
 
   return data;

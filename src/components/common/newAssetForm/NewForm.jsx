@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NewForm.css";
 import "@fontsource/roboto";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addShot } from "../../../store/actions/shotActions";
+import { addAsset } from "../../../store/actions/assetActions";
 
-function NewForm({ projId, seqId, seqName, closeForm }) {
+function NewForm({ projId, closeForm }) {
   const dispatch = useDispatch();
 
   const {
@@ -14,14 +15,14 @@ function NewForm({ projId, seqId, seqName, closeForm }) {
     formState: { errors },
   } = useForm();
 
-  const createShot = (event) => {
-    const name = seqName + event.shotName;
-    // const img = event.shotImg;
-    const img = null;
+  const createAsset = (event) => {
+    const name = event.assetName;
 
-    dispatch(addShot(projId, seqId, name, img));
+    dispatch(addAsset(projId, name));
     closeForm(false);
   };
+
+  console.log(errors);
 
   return (
     <div className="modal-background">
@@ -30,27 +31,21 @@ function NewForm({ projId, seqId, seqName, closeForm }) {
           <button onClick={() => closeForm(false)}> X </button>
         </div>
         <div className="title">
-          <a>Create a new Shot</a>
+          <a>Create a new Asset</a>
           <a> - Global Form</a>
         </div>
-        <form onSubmit={handleSubmit(createShot)}>
+        {/* <form onSubmit={(event) => createAsset(event)}> */}
+        <form onSubmit={handleSubmit(createAsset)}>
           <div className="body">
-            <label className="label">Shot Name: </label>
-            <a className="shotBegin"> {seqName}</a>
+            <label className="label">Asset Name: </label>
             <input
               id="name"
-              type="text"
-              pattern="[0-9]{4}"
-              {...register("shotName", {
+              {...register("assetName", {
                 required: true,
               })}
             />
+            {errors.assetName && <div>Required</div>}
           </div>
-          {/* <div className="body">
-            <label>Image: </label>
-            <input id="img" name="shotImg" />
-          </div> */}
-          {errors.shotName && <div>Required</div>}
           <div className="footer">
             <button onClick={() => closeForm(false)} id="cancelBtn">
               Cancel

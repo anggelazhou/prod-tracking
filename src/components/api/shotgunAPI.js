@@ -4,6 +4,7 @@ import CONSTS from "../constants";
 import {
   saveSequence as mockSaveSequence,
   saveShot as mockSaveShot,
+  saveAsset as mockSaveAsset,
 } from "./mockBackend.js";
 
 const config = {
@@ -41,6 +42,29 @@ class ShotgunApi {
     const requestUrl =
       CONSTS.SHOTGUN_API_BASE +
       'Sequence?q=[["project.Project.id", "is", ' +
+      showID +
+      "]]&fields=code";
+    return axios
+      .get(requestUrl, config)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((err) => {
+        console.log("Error fetching shot info from shotgun " + err);
+        return err;
+      });
+  }
+
+  /**
+   * Gets all the assets for a show
+   * @returns {Promise.<T>}
+   */
+  static getAssets(showID) {
+    console.log(showID);
+    // First get all the assets belonging to this show
+    const requestUrl =
+      CONSTS.SHOTGUN_API_BASE +
+      'Asset?q=[["project.Project.id", "is", ' +
       showID +
       "]]&fields=code";
     return axios
@@ -186,6 +210,10 @@ class ShotgunApi {
 
   static saveSequence(projID, seqData) {
     return Promise.resolve(mockSaveSequence(seqData));
+  }
+
+  static saveAsset(projID, assetData) {
+    return Promise.resolve(mockSaveAsset(assetData));
   }
 
   static saveShot(projID, seqID, shotData) {

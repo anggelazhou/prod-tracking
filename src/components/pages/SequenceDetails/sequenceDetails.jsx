@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-import TypesSubNavBar from "../../common/layout/TypeSubNavbar";
 import ShotList from "../../common/shot/ShotList";
 import NewForm from "../../common/newShotForm";
 // import "@fontsource/quantico";

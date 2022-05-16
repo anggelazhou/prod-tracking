@@ -1,15 +1,16 @@
 .types-subnavbar {
-  background: #980e21;
-  height: 52px;
+  background: #e5e5e5;
+  height: 2.5rem;
   display: flex;
   z-index: 10;
   align-items: center;
   justify-content: flex-end;
+  border-bottom: 1px solid #c4c4c4;
 }
 
 .link {
   padding: 0 1rem;
-  color: #fff;
+  color: #5d5e60;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
@@ -19,7 +20,13 @@
   font-size: small;
 }
 
-link:hover {
+.link:hover {
   transition: all 0.2s ease-in-out;
+  color: #010606;
+}
+
+.link:active {
+  font-weight: bold;
+  /* text-decoration: underline; */
   color: #010606;
 }

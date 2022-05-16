@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 // import "@fontsource/quantico";
 import "@fontsource/roboto";
 import "./login.css";
@@ -49,7 +50,7 @@ function Login() {
   return (
     <>
       {loginOk ? (
-        <div>Logged in!</div>
+        <Navigate to="/projects" />
       ) : (
         <div className="login">
           <LoginForm Login={handleLogin} error={error} user={user} />

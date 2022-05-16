@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TypesSubNavBar from "../../common/layout/TypeSubNavbar";
-import SequenceList from "../../common/sequence/SequenceList";
-import NewForm from "../../common/newSequenceForm";
+import AssetList from "../../common/asset/AssetList";
+import NewForm from "../../common/newAssetForm";
 // import "@fontsource/quantico";
 import "@fontsource/roboto";
-import "./projectDetails.css";
+import "./assets.css";
 
 import { connect, useSelector } from "react-redux";
-import { fetchSequences } from "../../../store/actions/seqActions";
+import { fetchAssets } from "../../../store/actions/assetActions";
 
-const ProjectDetails = ({ sequences, startFetchSequences }) => {
+const Assets = ({ assets, startFetchAssets }) => {
   const { id } = useParams();
 
   const currProj = useSelector((store) => {
@@ -19,7 +19,7 @@ const ProjectDetails = ({ sequences, startFetchSequences }) => {
   });
 
   useEffect(() => {
-    startFetchSequences(id);
+    startFetchAssets(id);
   }, [id]);
 
   const [openForm, setOpenForm] = useState(false);
@@ -32,7 +32,7 @@ const ProjectDetails = ({ sequences, startFetchSequences }) => {
           <div>
             <div className="proj-name">
               {currProj.name}
-              <a className="type"> {">"} SEQUENCES</a>
+              <a className="type"> {">"} ASSETS</a>
             </div>
 
             <img
@@ -44,22 +44,22 @@ const ProjectDetails = ({ sequences, startFetchSequences }) => {
           <div className="middle">
             <div className="button-sec">
               <button className="openFormBtn" onClick={() => setOpenForm(true)}>
-                + Create New Sequence
+                + Create New Asset
               </button>
             </div>
           </div>
           {openForm && <NewForm projId={id} closeForm={setOpenForm} />}
         </div>
         <div className="bottom">
-          {/* <div className="typeSeq">Sequences</div> */}
-          {sequences.loading ? (
+          {/* <div className="typeSeq">Assets</div> */}
+          {assets.loading ? (
             <div className="loading">Loading...</div>
-          ) : sequences.errorMsg ? (
-            <div className="error">ERROR: {sequences.errorMsg}</div>
-          ) : sequences.sequences.length == 0 ? (
-            <div className="none">No sequences</div>
+          ) : assets.errorMsg ? (
+            <div className="error">ERROR: {assets.errorMsg}</div>
+          ) : assets.assets.length == 0 ? (
+            <div className="none">No assets</div>
           ) : (
-            <SequenceList projId={id} />
+            <AssetList projId={id} />
           )}
         </div>
         {/* <div className="grid left">Info</div> */}
@@ -70,14 +70,14 @@ const ProjectDetails = ({ sequences, startFetchSequences }) => {
 
 const mapStateToProps = (state) => {
   return {
-    sequences: state.sequences,
+    assets: state.assets,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startFetchSequences: (id) => dispatch(fetchSequences(id)),
+    startFetchAssets: (id) => dispatch(fetchAssets(id)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(Assets);

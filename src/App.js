@@ -7,7 +7,7 @@ import Login from "./components/pages/Login";
 import SequenceDetails from "./components/pages/SequenceDetails";
 // import Shot from "./components/pages/ShotDetails";
 // import Asset from "./components/pages/AssetDetails";
-// import Assets from "./components/pages/Assets";
+import Assets from "./components/pages/Assets";
 // import Sequences from "./components/pages/NoNeedForNow/Sequences";
 // import Shots from "./components/pages/Shots";
 
@@ -17,12 +17,12 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/" element={<Projects />} />
+          <Route exact path="/" element={<Login />} />
+          {/* <Route exact path="/" element={<Projects />} /> */}
           <Route exact path="/projects" element={<Projects />} />
           {/* <Route exact path="/sequences" element={<Sequences />} />
           <Route exact path="/shots" element={<Shots />} /> */}
-          {/* <Route exact path="/assets" element={<Assets />} /> */}
+          <Route exact path="/projects/:id/assets" element={<Assets />} />
           <Route
             exact
             path="/projects/:id/sequences"
